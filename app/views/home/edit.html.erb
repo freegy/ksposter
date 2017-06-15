@@ -1,0 +1,116 @@
+</nav>
+<div class="container">
+
+<h3>포스터 수정</h3>
+<div class="row">
+    <%=form_tag '/home/update', method: 'post', class: 'col s12', multipart: true do%>
+    <input type="hidden" name="id" value="<%=@post.id%>">
+    <div class="row">
+        <div class="input-field col s12">
+            <label for="first_name">제목</label>
+            <input name="title" id="first_name" type="text" class="validate" value="<%=@post.title%>">
+
+        </div>
+
+        <div class="input-field col s12">
+            <label for="textarea1">내용</label>
+            <textarea name="content" id="textarea1" class="materialize-textarea"><%=@post.content%></textarea>
+        </div>
+
+        <div class="file-field input-field col s12 m12 l6">
+            <div class="btn">
+                <span>이미지 등록</span>
+                <input type="file" name="image" multiple>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="이미지를 선택하세요">
+            </div>
+        </div>
+        <div class="col s12 m12 l6">
+            <input name="startdate" type="date" class="datepicker" placeholder="시작날짜" value="<%=@post.startdate%>">
+            <input name="lastdate" type="date" class="datepicker" placeholder="마감날짜" value="<%=@post.lastdate%>">
+        </div>
+
+    </div>
+
+    <div class="right-align">
+          <button class="btn waves-effect waves-light" type="submit" name="action">글쓰기
+          </button>
+          <button class="btn waves-effect waves-light" type="reset" name="action">취소
+          </button>
+      </div>
+
+    <%end%>
+</div>
+
+</div>
+
+<script type="text/javascript">
+//Write form js
+
+$('#textarea1').trigger('autoresize');
+$('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 15,
+    monthsFull: [
+        '1월',
+        '2월',
+        '3월',
+        '4월',
+        '5월',
+        '6월',
+        '7월',
+        '8월',
+        '9월',
+        '10월',
+        '11월',
+        '12월'
+    ],
+    monthsShort: [
+        '1월',
+        '2월',
+        '3월',
+        '4월',
+        '5월',
+        '6월',
+        '7월',
+        '8월',
+        '9월',
+        '10월',
+        '11월',
+        '12월'
+    ],
+    weekdaysFull: [
+        '일요일',
+        '월요일',
+        '화요일',
+        '수요일',
+        '목요일',
+        '금요일',
+        '토요일'
+    ],
+    weekdaysShort: [
+        '일',
+        '월',
+        '화',
+        '수',
+        '목',
+        '금',
+        '토'
+    ],
+    //Materialize modified
+    weekdaysLetter: [
+        '일',
+        '월',
+        '화',
+        '수',
+        '목',
+        '금',
+        '토'
+    ],
+    format: 'yyyy-mm-dd',
+    today: '오늘',
+    clear: '초기화',
+    close: '확인'
+});
+</script>

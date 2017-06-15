@@ -1,0 +1,43 @@
+<%= render 'home/header' %>
+<%= render 'home/filter' %>
+
+<!-- Gallery -->
+<div id="portfolio" class="section gray">
+
+    <div class="gallery row">
+        <% @posts.each do |p| %>
+        <div class="col l3 m4 s12 gallery-item gallery-expand gallery-filter polygon">
+            <div class="gallery-curve-wrapper">
+                <a class="gallery-cover gray">
+                    <img class="responsive-img" src="<%=p.image.url%>" alt="placeholder">
+                </a>
+                <div class="gallery-header">
+                    <span><%=p.title%></span>
+                </div>
+                <div class="gallery-body">
+                    <div class="title-wrapper">
+                        <h3><%=p.title%></h3>
+                        <span class="price"><%=p.startdate%>
+                            ~
+                            <%=p.lastdate%></span>
+                    </div>
+                    <p class="description"><%=p.content%></p>
+                </div>
+                <div class="gallery-action">
+                    <a class="btn-floating btn-large cyan darken-3 waves-effect waves-light" href="/home/edit?id=<%=p.id%>">
+                        <i class="material-icons">mode_edit</i>
+                    </a>
+                    <a class="btn-floating btn-large cyan darken-3 waves-effect waves-light" href="/home/destroy?id=<%=p.id%>">
+                        <i class="material-icons">delete</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <%end%>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<!-- Core Javascript -->
